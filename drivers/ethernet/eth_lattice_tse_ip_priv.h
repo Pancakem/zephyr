@@ -1,0 +1,262 @@
+/** Lattice Semiconductor Tri-Speed Ethernet IP
+ *
+ *
+ */
+
+#ifndef _ETH_LATTICE_TSE_IP_PRIV_H
+#define _ETH_LATTICE_TSE_IP_PRIV_H
+
+/* Registers */
+#define LATTICE_TSE_IP_MODE                                     0x000
+#define LATTICE_TSE_IP_TRANSMIT_AND_RECEIVE_CTRL                0x004
+#define LATTICE_TSE_IP_MAX_PACKET_SIZE                          0x008
+#define LATTICE_TSE_IP_INTER_PACKET_GAP                         0x00C
+#define LATTICE_TSE_IP_MAC_ADDR_WORD_0                          0x010
+#define LATTICE_TSE_IP_MAC_ADDR_WORD_1                          0x014
+#define LATTICE_TSE_IP_TRANSMIT_AND_RECEIVE_STATUS              0x018
+#define LATTICE_TSE_IP_VLAN_TAG                                 0x01C
+#define LATTICE_TSE_IP_GMII_MGMT_INTERFACE_CTRL                 0x020
+#define LATTICE_TSE_IP_GMII_MGMT_DATA                           0x024
+#define LATTICE_TSE_IP_MULTICAST_TABLE_WORD_0                   0x028
+#define LATTICE_TSE_IP_MULTICAST_TABLE_WORD_1                   0x02C
+#define LATTICE_TSE_IP_PAUSE_OPCODE                             0x030
+#define LATTICE_TSE_IP_TX_FIFO_ALMOST_FULL                      0x034
+#define LATTICE_TSE_IP_TX_FIFO_ALMOST_EMPTY                     0x038
+#define LATTICE_TSE_IP_RX_FIFO_ALMOST_FULL                      0x03C
+#define LATTICE_TSE_IP_RX_FIFO_ALMOST_EMPTY                     0x040
+#define LATTICE_TSE_IP_INTERRUPT_STATUS                         0x044
+#define LATTICE_TSE_IP_INTERRUPT_ENABLE                         0x048
+/*  TX Statistics Counters */
+#define LATTICE_TSE_IP_STATS_TX_STAT_UNICST_0                   0x04C
+#define LATTICE_TSE_IP_STATS_TX_STAT_UNICST_1                   0x050
+#define LATTICE_TSE_IP_STATS_TX_STAT_MULTCST_0                  0x054
+#define LATTICE_TSE_IP_STATS_TX_STAT_MULTCST_1                  0x058
+#define LATTICE_TSE_IP_STATS_TX_STAT_BRDCST_0                   0x05C
+#define LATTICE_TSE_IP_STATS_TX_STAT_BRDCST_1                   0x060
+#define LATTICE_TSE_IP_STATS_TX_STAT_BADFCS_0                   0x064
+#define LATTICE_TSE_IP_STATS_TX_STAT_BADFCS_1                   0x068
+#define LATTICE_TSE_IP_STATS_TX_STAT_JMBO_0                     0x06C
+#define LATTICE_TSE_IP_STATS_TX_STAT_JMBO_1                     0x070
+#define LATTICE_TSE_IP_STATS_TX_STAT_UNDER_RUN_0                0x074
+#define LATTICE_TSE_IP_STATS_TX_STAT_UNDER_RUN_1                0x078
+#define LATTICE_TSE_IP_STATS_TX_STAT_PAUSE_0                    0x07C
+#define LATTICE_TSE_IP_STATS_TX_STAT_PAUSE_1                    0x080
+#define LATTICE_TSE_IP_STATS_TX_STAT_VLN_TG_0                   0x084
+#define LATTICE_TSE_IP_STATS_TX_STAT_VLN_TG_1                   0x088
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_LNGTH_0                0x08C
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_LNGTH_1                0x090
+#define LATTICE_TSE_IP_STATS_TX_STAT_DEFERRED_TRANS_0           0x094
+#define LATTICE_TSE_IP_STATS_TX_STAT_DEFERRED_TRANS_1           0x098
+#define LATTICE_TSE_IP_STATS_TX_STAT_EXCESSIVE_DEFERRED_TRANS_0 0x09C
+#define LATTICE_TSE_IP_STATS_TX_STAT_EXCESSIVE_DEFERRED_TRANS_1 0x0A0
+#define LATTICE_TSE_IP_STATS_TX_STAT_LATE_COL_0                 0x0A4
+#define LATTICE_TSE_IP_STATS_TX_STAT_LATE_COL_1                 0x0A8
+#define LATTICE_TSE_IP_STATS_TX_STAT_EXCESSIVE_COL_0            0x0AC
+#define LATTICE_TSE_IP_STATS_TX_STAT_EXCESSIVE_COL_1            0x0B0
+#define LATTICE_TSE_IP_STATS_TX_STAT_NUM_EARLY_COL_0            0x0B4
+#define LATTICE_TSE_IP_STATS_TX_STAT_NUM_EARLY_COL_1            0x0B8
+#define LATTICE_TSE_IP_STATS_TX_STAT_SHRT_FRM_DIS_FCS_0         0x0BC
+#define LATTICE_TSE_IP_STATS_TX_STAT_SHRT_FRM_DIS_FCS_1         0x0C0
+#define LATTICE_TSE_IP_STATS_TX_STAT_PTP1588_FRM_0              0x0C4
+#define LATTICE_TSE_IP_STATS_TX_STAT_PTP1588_FRM_1              0x0C8
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_64_0                   0x0CC
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_64_1                   0x0D0
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_65_127_0               0x0D4
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_65_127_1               0x0D8
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_128_255_0              0x0DC
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_128_255_1              0x0E0
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_256_511_0              0x0E4
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_256_511_1              0x0E8
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_512_1023_0             0x0EC
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_512_1023_1             0x0F0
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_1024_1518_0            0x0F4
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_1024_1518_1            0x0F8
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_1519_2047_0            0x0FC
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_1519_2047_1            0x100
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_2048_4095_0            0x104
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_2048_4095_1            0x108
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_4096_9216_0            0x10C
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_4096_9216_1            0x110
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_9217_16383_0           0x114
+#define LATTICE_TSE_IP_STATS_TX_STAT_FRM_9217_16383_1           0x118
+/*  RX Statistics Counters */
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_LNGTH_0                0x11C
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_LNGTH_1                0x120
+#define LATTICE_TSE_IP_STATS_RX_STAT_VLN_TG_0                   0x124
+#define LATTICE_TSE_IP_STATS_RX_STAT_VLN_TG_1                   0x128
+#define LATTICE_TSE_IP_STATS_RX_STAT_PAUSE_0                    0x12C
+#define LATTICE_TSE_IP_STATS_RX_STAT_PAUSE_1                    0x130
+#define LATTICE_TSE_IP_STATS_RX_STAT_CTRL_0                     0x134
+#define LATTICE_TSE_IP_STATS_RX_STAT_CTRL_1                     0x138
+#define LATTICE_TSE_IP_STATS_RX_STAT_UNSP_OPCODE_0              0x13C
+#define LATTICE_TSE_IP_STATS_RX_STAT_UNSP_OPCODE_1              0x140
+#define LATTICE_TSE_IP_STATS_RX_STAT_DRIBB_NIBB_0               0x144
+#define LATTICE_TSE_IP_STATS_RX_STAT_DRIBB_NIBB_1               0x148
+#define LATTICE_TSE_IP_STATS_RX_STAT_BRDCST_0                   0x14C
+#define LATTICE_TSE_IP_STATS_RX_STAT_BRDCST_1                   0x150
+#define LATTICE_TSE_IP_STATS_RX_STAT_MULTCST_0                  0x154
+#define LATTICE_TSE_IP_STATS_RX_STAT_MULTCST_1                  0x158
+#define LATTICE_TSE_IP_STATS_RX_STAT_UNICST_0                   0x15C
+#define LATTICE_TSE_IP_STATS_RX_STAT_UNICST_1                   0x160
+#define LATTICE_TSE_IP_STATS_RX_STAT_RCVD_OK_0                  0x164
+#define LATTICE_TSE_IP_STATS_RX_STAT_RCVD_OK_1                  0x168
+#define LATTICE_TSE_IP_STATS_RX_STAT_LNGTH_ERR_0                0x16C
+#define LATTICE_TSE_IP_STATS_RX_STAT_LNGTH_ERR_1                0x170
+#define LATTICE_TSE_IP_STATS_RX_STAT_CRC_ERR_0                  0x174
+#define LATTICE_TSE_IP_STATS_RX_STAT_CRC_ERR_1                  0x178
+#define LATTICE_TSE_IP_STATS_RX_STAT_PKT_IGNORE_0               0x17C
+#define LATTICE_TSE_IP_STATS_RX_STAT_PKT_IGNORE_1               0x180
+#define LATTICE_TSE_IP_STATS_RX_STAT_PREVIOUS_CARRIER_EVENT_0   0x184
+#define LATTICE_TSE_IP_STATS_RX_STAT_PREVIOUS_CARRIER_EVENT_1   0x188
+#define LATTICE_TSE_IP_STATS_RX_STAT_PTP1588_FRM_0              0x18C
+#define LATTICE_TSE_IP_STATS_RX_STAT_PTP1588_FRM_1              0x190
+#define LATTICE_TSE_IP_STATS_RX_STAT_IPG_VIOL_0                 0x194
+#define LATTICE_TSE_IP_STATS_RX_STAT_IPG_VIOL_1                 0x198
+#define LATTICE_TSE_IP_STATS_RX_STAT_SHRT_FRM_0                 0x19C
+#define LATTICE_TSE_IP_STATS_RX_STAT_SHRT_FRM_1                 0x1A0
+#define LATTICE_TSE_IP_STATS_RX_STAT_LNG_FRM_0                  0x1A4
+#define LATTICE_TSE_IP_STATS_RX_STAT_LNG_FRM_1                  0x1A8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_UNDERSIZE_0            0x1AC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_UNDERSIZE_1            0x1B0
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_FRAGMENTS_0            0x1B4
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_FRAGMENTS_1            0x1B8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_JABBER_0               0x1BC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_JABBER_1               0x1C0
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_64_GOOD_CRC_0          0x1C4
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_64_GOOD_CRC_1          0x1C8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1518_GOOD_CRC_0        0x1CC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1518_GOOD_CRC_1        0x1D0
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_64_0                   0x1D4
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_64_1                   0x1D8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_65_127_0               0x1DC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_65_127_1               0x1E0
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_128_255_0              0x1E4
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_128_255_1              0x1E8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_256_511_0              0x1EC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_256_511_1              0x1F0
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_512_1023_0             0x1F4
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_512_1023_1             0x1F8
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1024_1518_0            0x1FC
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1024_1518_1            0x200
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1519_2047_0            0x204
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_1519_2047_1            0x208
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_2048_4095_0            0x20C
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_2048_4095_1            0x210
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_4096_9216_0            0x214
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_4096_9216_1            0x218
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_9217_16383_0           0x21C
+#define LATTICE_TSE_IP_STATS_RX_STAT_FRM_9217_16383_1           0x220
+/* Byte Accumulation Counters */
+#define LATTICE_TSE_IP_STATS_TX_STAT_PKT_LNGTH_ACC_0            0x224
+#define LATTICE_TSE_IP_STATS_TX_STAT_PKT_LNGTH_ACC_1            0x228
+#define LATTICE_TSE_IP_STATS_RX_STAT_PKT_LNGTH_ACC_0            0x22C
+#define LATTICE_TSE_IP_STATS_RX_STAT_PKT_LNGTH_ACC_1            0x230
+
+/* SGMII and Gb Ethernet PCS Soft IP Register */
+/* MAC Host Interface base for PCS registers */
+#define LATTICE_TSE_IP_PCS_BASE_ADDR 0x0400
+
+#define LATTICE_TSE_IP_PCS_CTRL_STATUS                                                             \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x000U) /* PCS [0x000]/[0x001] */
+#define LATTICE_TSE_IP_PCS_ADVERTISE_PARTNER                                                       \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x008U) /* PCS [0x004]/[0x005]                             \
+						 */
+#define LATTICE_TSE_IP_PCS_AN_EXPANSION                                                            \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x00CU) /* PCS [0x006]/[0x007] */
+#define LATTICE_TSE_IP_PCS_CFGSRC_EXTSTAT                                                          \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x01CU) /* PCS [0x00E]/[0x00F] */
+#define LATTICE_TSE_IP_PCS_CTRL0_CTRL1                                                             \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x040U) /* PCS [0x020]/[0x021] */
+#define LATTICE_TSE_IP_PCS_CTRL10_CTRL11                                                           \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x054U) /* PCS [0x02A]/[0x02B] */
+#define LATTICE_TSE_IP_PCS_STATUS9                                                                 \
+	(LATTICE_TSE_IP_PCS_BASE_ADDR + 0x050U) /* PCS [0x029] (upper 16 bits) */
+
+/* Auto-Negotiation Control Register
+    Mapped to 'LATTICE_TSE_IP_PCS_CTRL_STATUS' lower 16 bits */
+#define LATTICE_TSE_IP_PCS_CTRL_RESET          (1U << 15)
+#define LATTICE_TSE_IP_PCS_CTRL_LOOPBACK       (1U << 14)
+#define LATTICE_TSE_IP_PCS_CTRL_SPEED_SEL0     (1U << 13)
+#define LATTICE_TSE_IP_PCS_CTRL_AUTONEG_ENABLE (1U << 12)
+#define LATTICE_TSE_IP_PCS_CTRL_POWERDOWN      (1U << 11)
+#define LATTICE_TSE_IP_PCS_CTRL_ISOLATE        (1U << 10)
+#define LATTICE_TSE_IP_PCS_CTRL_RESTART_AN     (1U << 9)
+#define LATTICE_TSE_IP_PCS_CTRL_DUPLEX_FULL    (1U << 8)
+#define LATTICE_TSE_IP_PCS_CTRL_COLLISION_TEST (1U << 7)
+#define LATTICE_TSE_IP_PCS_CTRL_SPEED_SEL1     (1U << 6)
+#define LATTICE_TSE_IP_PCS_CTRL_UNIDIRECTIONAL (1U << 5)
+
+/* Speed field combined from bits [13] and [6] */
+#define LATTICE_TSE_IP_PCS_SPEED_10M   (0U << 6)
+#define LATTICE_TSE_IP_PCS_SPEED_100M  (1U << 13)
+#define LATTICE_TSE_IP_PCS_SPEED_1000M ((1U << 13) | (1U << 6))
+
+/* Auto-Negotiation Status Register
+    Mapped to 'LATTICE_TSE_IP_PCS_CTRL_STATUS' upper 16 bits */
+#define LATTICE_TSE_IP_PCS_STATUS_EXTENDED_STATUS (1U << 8)
+#define LATTICE_TSE_IP_PCS_STATUS_AN_COMPLETE     (1U << 5)
+#define LATTICE_TSE_IP_PCS_STATUS_LINK_STATUS     (1U << 2)
+#define LATTICE_TSE_IP_PCS_STATUS_AN_ABILITY      (1U << 3)
+
+/* Advertised Ability Register
+    Mapped to 'LATTICE_TSE_IP_PCS_ADVERTISE_PARTNER' lower 16 bits */
+#define LATTICE_TSE_IP_PCS_ADV_LINK_UP     (1U << 15)
+#define LATTICE_TSE_IP_PCS_ADV_ACKNOWLEDGE (1U << 14)
+#define LATTICE_TSE_IP_PCS_ADV_DUPLEX_FULL (1U << 12)
+#define LATTICE_TSE_IP_PCS_ADV_SPEED_SHIFT 10
+#define LATTICE_TSE_IP_PCS_ADV_SPEED_MASK  (0x3U << LATTICE_TSE_IP_PCS_ADV_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_ADV_SPEED_10M   (0x0U << LATTICE_TSE_IP_PCS_ADV_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_ADV_SPEED_100M  (0x1U << LATTICE_TSE_IP_PCS_ADV_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_ADV_SPEED_1000M (0x2U << LATTICE_TSE_IP_PCS_ADV_SPEED_SHIFT)
+
+/* Link Partner Ability Register
+    Mapped to 'LATTICE_TSE_IP_PCS_ADVERTISE_PARTNER' upper 16 bits */
+#define LATTICE_TSE_IP_PCS_LP_LINK_UP     (1U << 15)
+#define LATTICE_TSE_IP_PCS_LP_ACKNOWLEDGE (1U << 14)
+#define LATTICE_TSE_IP_PCS_LP_DUPLEX_FULL (1U << 12)
+#define LATTICE_TSE_IP_PCS_LP_SPEED_SHIFT 10
+#define LATTICE_TSE_IP_PCS_LP_SPEED_MASK  (0x3U << LATTICE_TSE_IP_PCS_LP_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_LP_SPEED_10M   (0x0U << LATTICE_TSE_IP_PCS_LP_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_LP_SPEED_100M  (0x1U << LATTICE_TSE_IP_PCS_LP_SPEED_SHIFT)
+#define LATTICE_TSE_IP_PCS_LP_SPEED_1000M (0x2U << LATTICE_TSE_IP_PCS_LP_SPEED_SHIFT)
+
+/* Configuration Source Control
+    Mapped to 'LATTICE_TSE_IP_PCS_CFGSRC_EXTSTAT' lower 16 bits */
+#define LATTICE_TSE_IP_PCS_CFGSRC_MANAGEMENT (0U << 0)
+#define LATTICE_TSE_IP_PCS_CFGSRC_REGISTERS  (1U << 0)
+
+/* Extended Status
+    Mapped to 'LATTICE_TSE_IP_PCS_CFGSRC_EXTSTAT' upper 16 bits */
+#define LATTICE_TSE_IP_PCS_EXTSTAT_1000X_FULL (1U << 15)
+#define LATTICE_TSE_IP_PCS_EXTSTAT_1000X_HALF (1U << 14)
+
+/*PCS Control Register 0
+    Mapped to 'LATTICE_TSE_IP_PCS_CTRL0_CTRL1' lower 16 bits */
+#define LATTICE_TSE_IP_PCS_CTRL0_ENABLE_CGALIGN (1U << 15)
+#define LATTICE_TSE_IP_PCS_CTRL0_GE_AN_ENABLE   (1U << 12)
+
+/* PCS Control Register 1
+    Mapped to 'LATTICE_TSE_IP_PCS_CTRL0_CTRL1' upper 16 bits */
+#define LATTICE_TSE_IP_PCS_CTRL1_SB_BYPASS      (1U << 14)
+#define LATTICE_TSE_IP_PCS_CTRL1_TX_GEAR_BYPASS (1U << 9)
+#define LATTICE_TSE_IP_PCS_CTRL1_FB_LOOPBACK    (1U << 8)
+#define LATTICE_TSE_IP_PCS_CTRL1_LSM_DISABLE    (1U << 7)
+#define LATTICE_TSE_IP_PCS_CTRL1_SIGNAL_DETECT  (1U << 6)
+#define LATTICE_TSE_IP_PCS_CTRL1_RX_GEAR_BYPASS (1U << 5)
+#define LATTICE_TSE_IP_PCS_CTRL1_CTC_BYPASS     (1U << 4)
+#define LATTICE_TSE_IP_PCS_CTRL1_DEC_BYPASS     (1U << 3)
+#define LATTICE_TSE_IP_PCS_CTRL1_WA_BYPASS      (1U << 2)
+
+/* PCS Status Register 9
+    Mapped partially to 'LATTICE_TSE_IP_PCS_STATUS9' upper 16 bits */
+#define LATTICE_TSE_IP_PCS_STATUS9_LS_SYNC_STATUS (1U << 6)
+#define LATTICE_TSE_IP_PCS_STATUS9_ALIGN_SHIFT    7
+#define LATTICE_TSE_IP_PCS_STATUS9_ALIGN_MASK     (0xFU << LATTICE_TSE_IP_PCS_STATUS9_ALIGN_SHIFT)
+
+/* PCS Control Register 10
+    Mapped to 'LATTICE_TSE_IP_PCS_CTRL10_CTRL11' lower 16 bits */
+#define LATTICE_TSE_IP_PCS_CTRL10_LSM_ECA (1U << 15)
+#define LATTICE_TSE_IP_PCS_CTRL10_WA_MODE (1U << 12)
+#define LATTICE_TSE_IP_PCS_CTRL10_FC_MODE (1U << 9)
+
+#endif
